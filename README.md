@@ -54,3 +54,7 @@ Start the Express server in development mode:
 
 ```bash
 npm run dev
+
+## 3. Frontend Setup
+1. npm install
+2. npm run dev
