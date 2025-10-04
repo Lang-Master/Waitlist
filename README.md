@@ -10,8 +10,12 @@ Before you begin, ensure you have the following installed on your system:
 * **MySQL Server** (and a client like MySQL Workbench for managing the database)
 
 ---
+## 2. Frontend Setup
+1. npm install
+2. npm run dev
+---
 
-## 2. Backend Setup (API & Database)
+## 3. Backend Setup (API & Database)
 
 The backend service runs on port `3000` and handles API requests and database logic using Prisma.
 
@@ -54,7 +58,3 @@ Start the Express server in development mode:
 
 ```bash
 npm run dev
-
-## 3. Frontend Setup
-1. npm install
-2. npm run dev
