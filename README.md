@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Waitlist (Node.js/Express, React/Next.js, MySQL/Prisma)
 
-## Getting Started
+This repository contains a full-stack application for managing a product waitlist. The backend uses Node.js, Express, and Prisma to connect to a MySQL database, and the frontend is a modern React/Next.js application.
 
-First, run the development server:
+## 🚀 1. Prerequisites
+
+Before you begin, ensure you have the following installed on your system:
+
+* **Node.js** (v18 or higher recommended)
+* **MySQL Server** (and a client like MySQL Workbench for managing the database)
+
+---
+
+## 2. Backend Setup (API & Database)
+
+The backend service runs on port `3000` and handles API requests and database logic using Prisma.
+
+### a. Installation
+
+1.  Navigate to the root `/backend` directory:
+    ```bash
+    cd backend
+    ```
+2.  Install dependencies:
+    ```bash
+    npm install
+    ```
+
+### b. Database Configuration
+
+1.  **MySQL Server:** Ensure your local MySQL server is running (typically on port `3306`).
+2.  **Create Database:** Log into MySQL and create the database specified in your project schema:
+    ```sql
+    CREATE DATABASE waiting_list;
+    ```
+3.  **Create `.env` File:** In the root of the `/backend` directory, create a file named **`.env`** and add your connection string, replacing the placeholders with your actual MySQL credentials:
+    ```env
+    DATABASE_URL="mysql://root:<your_password>@localhost:3306/waiting_list"
+    PORT=3000
+    ```
+
+### c. Schema Migration (Prisma)
+
+You must run the Prisma migration command to apply the data model defined in `schema.prisma` and create the necessary `waitlistEntry` table in your MySQL database.
+
+1.  Run the migration command:
+    ```bash
+    npx prisma migrate dev --name init
+    ```
+
+### d. Run the Backend
+
+Start the Express server in development mode:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
